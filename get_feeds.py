@@ -25,6 +25,15 @@ HEADERS = {
     'Sec-Fetch-Site': 'none', 'Sec-Fetch-User': '?1', 'TE': 'trailers'
 }
 
+REDDIT_FLAIRS_TO_BLOCK = [
+    'question / discussion',
+    'beginner / newbie qa',
+    'collaboration / mentorship',
+    'question',
+    'discussion',
+    'help'
+]
+
 
 FEEDS_TO_CHECK = [
     "https://www.reddit.com/r/bugbounty.rss",
