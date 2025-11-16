@@ -3,6 +3,7 @@ import requests
 import re
 import telegram
 import asyncio  
+import os 
 from telegram.constants import ParseMode
 
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
