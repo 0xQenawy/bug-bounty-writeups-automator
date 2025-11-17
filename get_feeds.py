@@ -11,7 +11,7 @@ from telegram.constants import ParseMode
 
 DB_FILE = 'writeups.db'
 PRUNE_AFTER_DAYS = 30
-MAX_ARTICLES_TO_SEND = 3 
+MAX_ARTICLES_TO_SEND = 2 
 
 SOURCE_SCORES = {
     'portswigger.net': 3,            
