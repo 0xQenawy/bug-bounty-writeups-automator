@@ -12,11 +12,11 @@ This project goes beyond simple filtering. It uses a priority scoring system and
 - Auto-Pruning Database: The database automatically cleans itself, removing any links older than 30 days (`PRUNE_AFTER_DAYS`) to stay fast and lightweight.
 
 - Expanded & Smart Filtering:
-    - Fetches from 6+ high-quality sources (PortSwigger, Google Project Zero, Intigriti, etc.).
+> * Fetches from 6+ high-quality sources (PortSwigger, Google Project Zero, Intigriti, etc.).
 
-    - Filters by a comprehensive keyword list (KEYWORDS_TO_FIND).
+> * Filters by a comprehensive keyword list (KEYWORDS_TO_FIND).
 
-    - Intelligently skips "Question" or "Discussion" posts from Reddit using a flair blocklist.
+> * Intelligently skips "Question" or "Discussion" posts from Reddit using a flair blocklist.
 
 - Fully Automated & Serverless: Runs on a daily schedule using GitHub Actions. No servers or payments required.
 
@@ -29,27 +29,27 @@ This project goes beyond simple filtering. It uses a priority scoring system and
 
  4. Filter & Score: It loops through every single article and performs 4 checks:
 
- > *Check 1 (Memory): Is this link already in the writeups.db? (If yes, Skip).
+ > * Check 1 (Memory): Is this link already in the writeups.db? (If yes, Skip).
 
- > *Check 2 (Keyword): Is there a Keyword in the title? (If no, Skip).
+ > * Check 2 (Keyword): Is there a Keyword in the title? (If no, Skip).
 
- > *Check 3 (Flair): Is this from Reddit with a "Question" flair? (If yes, Skip).
+ > * Check 3 (Flair): Is this from Reddit with a "Question" flair? (If yes, Skip).
 
- > *Check 4 (Score): If it passes all checks, assign it a score based on its source (e.g., 3 points for PortSwigger).
+ > * Check 4 (Score): If it passes all checks, assign it a score based on its source (e.g., 3 points for PortSwigger).
 
  5. Sort & Select:
 
- > *The script gathers all new, filtered articles into a master list.
+ > * The script gathers all new, filtered articles into a master list.
 
- > *It sorts this list by score (highest to lowest).
+ > * It sorts this list by score (highest to lowest).
 
- > *It selects only the Top 3 (or MAX_ARTICLES_TO_SEND) from this sorted list.
+ > * It selects only the Top 3 (or MAX_ARTICLES_TO_SEND) from this sorted list.
 
  6. Send & Save:
 
- > *The Top 3 articles are sent to your Telegram chat.
+ > * The Top 3 articles are sent to your Telegram chat.
 
- > *Only those 3 links are saved to the writeups.db as "sent."
+ > * Only those 3 links are saved to the writeups.db as "sent."
 
  7. Commit & Push: The GitHub Action automatically commits and pushes the updated writeups.db file back to your repository, saving the "memory" for the next run.
 
@@ -73,15 +73,15 @@ Add Repository Secrets:
 
 Set Workflow Permissions (CRITICAL STEP):
 
-> *The Action needs permission to git push the database file.
+> * The Action needs permission to git push the database file.
 
-> *Go to Settings > Actions > General.
+> * Go to Settings > Actions > General.
 
-> *Scroll down to "Workflow permissions".
+> * Scroll down to "Workflow permissions".
 
-> *Select the "Read and write permissions" option.
+> * Select the "Read and write permissions" option.
 
-> *Click Save.
+> * Click Save.
 
 Customize (Optional): 
 > * Edit get_feeds.py to change `KEYWORDS_TO_FIND`, `SOURCE_SCORES`, or `MAX_ARTICLES_TO_SEND`. 
